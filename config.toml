@@ -1,4 +1,4 @@
-baseURL = "https://abdellah.blog"
+baseURL = "https://abdellah-hugo.netlify.com"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Hugo Hermit"
@@ -14,7 +14,7 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
 # disqusShortname = "yourdiscussshortname"
 
 [author]
-  name = "John Doe"
+  name = "Abdellah Alaoui"
 
 [blackfriday]
   # hrefTargetBlank = true
@@ -57,15 +57,11 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
   # Check https://github.com/Track3/hermit#social-icons for more info.
   [[params.social]]
     name = "twitter"
-    url = "https://twitter.com/"
-
-  [[params.social]]
-    name = "instagram"
-    url = "https://instagram.com/"
+    url = "https://twitter.com/haikyuu"
 
   [[params.social]]
     name = "github"
-    url = "https://github.com/"
+    url = "https://github.com/haikyuu"
 
 [menu]
 
