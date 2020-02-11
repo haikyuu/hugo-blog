@@ -14,6 +14,7 @@ tags:
 I am a full stack developer and all my experience was spent building SPA or mobile apps (React and react-native).
 
 I always wanted to learn another language. Here are some that interest me:
+
 - Python because of edge-db. (not so much because they have a JS adapter now)
 - Reason because it's a functional language that's close to JS (syntax wise) and with good support for React. 
 - Typescript because of types. I find it very verbose though.
