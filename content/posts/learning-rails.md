@@ -1,7 +1,6 @@
 ---
 title: "The new era of web development - Backendless"
-draft: true
-toc: false
+draft: "true"
 date: 2020-02-11
 images:
 tags: 
