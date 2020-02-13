@@ -2,7 +2,7 @@
 title: "Exploring Edge db - the next gen database"
 draft: false
 toc: false
-date: 2020-02-12
+date: 2020-02-14
 images:
 tags: 
   - Database
