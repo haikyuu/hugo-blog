@@ -3,27 +3,83 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://abdellah-hugo.netlify.com/</loc>
-    <lastmod>2019-03-26T08:47:11+01:00</lastmod>
+    <loc>https://abdellah.blog/</loc>
+    <lastmod>2020-02-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://abdellah-hugo.netlify.com/posts/my-first-post/</loc>
-    <lastmod>2019-03-26T08:47:11+01:00</lastmod>
+    <loc>https://abdellah.blog/tags/javascript/</loc>
+    <lastmod>2020-02-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://abdellah-hugo.netlify.com/posts/</loc>
-    <lastmod>2019-03-26T08:47:11+01:00</lastmod>
+    <loc>https://abdellah.blog/posts/</loc>
+    <lastmod>2020-02-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://abdellah-hugo.netlify.com/about/</loc>
+    <loc>https://abdellah.blog/tags/react/</loc>
+    <lastmod>2020-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abdellah.blog/tags/react-native/</loc>
+    <lastmod>2020-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abdellah.blog/posts/react-native-webview/</loc>
+    <lastmod>2020-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abdellah.blog/tags/</loc>
+    <lastmod>2020-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abdellah.blog/tags/webview/</loc>
+    <lastmod>2020-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abdellah.blog/tags/backend/</loc>
+    <lastmod>2020-02-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abdellah.blog/tags/front-end/</loc>
+    <lastmod>2020-02-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abdellah.blog/tags/paradigm-shift/</loc>
+    <lastmod>2020-02-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abdellah.blog/tags/rails/</loc>
+    <lastmod>2020-02-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abdellah.blog/posts/learning-rails/</loc>
+    <lastmod>2020-02-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abdellah.blog/tags/life/</loc>
+    <lastmod>2020-01-26T08:47:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abdellah.blog/posts/my-first-post/</loc>
+    <lastmod>2020-01-26T08:47:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abdellah.blog/about/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abdellah-hugo.netlify.com/tags/</loc>
   </url>
   
 </urlset>

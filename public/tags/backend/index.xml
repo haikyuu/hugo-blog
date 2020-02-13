@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Backend on Abdellah Alaoui</title>
+    <link>https://abdellah.blog/tags/backend/</link>
+    <description>Recent content in Backend on Abdellah Alaoui</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 11 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://abdellah.blog/tags/backend/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The new era of web development - Backendless</title>
+      <link>https://abdellah.blog/posts/learning-rails/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://abdellah.blog/posts/learning-rails/</guid>
+      <description>Introduction I am a full stack developer and all my experience was spent building SPA or mobile apps (React and react-native).
+I always wanted to learn another language. Here are some that interest me:
+ Python because of edge-db. (not so much because they have a JS adapter now) Reason because it&amp;rsquo;s a functional language that&amp;rsquo;s close to JS (syntax wise) and with good support for React. Typescript because of types.</description>
+    </item>
+    
+  </channel>
+</rss>

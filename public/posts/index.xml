@@ -1,22 +1,162 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Posts on Hugo Hermit</title>
-		<link>https://abdellah-hugo.netlify.com/posts/</link>
-		<description>Recent content in Posts on Hugo Hermit</description>
+		<title>Posts on Abdellah Alaoui</title>
+		<link>https://abdellah.blog/posts/</link>
+		<description>Recent content in Posts on Abdellah Alaoui</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Tue, 26 Mar 2019 08:47:11 +0100</lastBuildDate>
-		<atom:link href="https://abdellah-hugo.netlify.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		<lastBuildDate>Thu, 13 Feb 2020 00:00:00 +0000</lastBuildDate>
+		<atom:link href="https://abdellah.blog/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
-			<title>My First Post</title>
-			<link>https://abdellah-hugo.netlify.com/posts/my-first-post/</link>
-			<pubDate>Tue, 26 Mar 2019 08:47:11 +0100</pubDate>
+			<title>React Native - Webview communication</title>
+			<link>https://abdellah.blog/posts/react-native-webview/</link>
+			<pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://abdellah-hugo.netlify.com/posts/my-first-post/</guid>
-			<description>Hello World!</description>
-			<content type="html"><![CDATA[<p>Hello World!</p>
+			<guid>https://abdellah.blog/posts/react-native-webview/</guid>
+			<description>Introduction There are various cases in which you would want to display a Webview in a mobile app. You may want to display your privacy policy that&amp;rsquo;s present in your website, or you may want to integrate with a service that requires the use of a Webview (HelloSign) &amp;hellip;
+Whatever is your usecase, you want the best User Experience. So let&amp;rsquo;s dive in and see how we can communicate back and forth between native and a Webview.</description>
+			<content type="html"><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>There are various cases in which you would want to display a Webview in a mobile app. You may want to display your privacy policy that&rsquo;s present in your website, or you may want to integrate with a service that requires the use of a Webview (HelloSign) &hellip;</p>
+<p>Whatever is your usecase, you want the best User Experience. So let&rsquo;s dive in and see how we can communicate back and forth between native and a Webview.</p>
+<p>First, let&rsquo;s take a look at the official guide for <a href="https://github.com/react-native-community/react-native-webview/blob/master/docs/Guide.md#communicating-between-js-and-native">communicating between js and native</a>. I sum it up below.</p>
+<p>tl;dr, There are three ways:</p>
+<ol>
+<li>React Native -&gt; Web: The <code>injectedJavaScript</code> prop:
+1.1. <code>injectedJavaScript</code>: This is a script that runs <strong>immediately after the web page loads</strong> for the first time.
+1.2. <code>injectedJavaScriptBeforeContentLoaded</code>: This is a script that runs <strong>before the web page loads</strong> for the first time.
+The downside of these methods is that they run <strong>only once</strong></li>
+<li>React Native -&gt; Web: The <code>injectJavaScript</code> method enables you to run some JavaScript in the webpage whenever you want.</li>
+<li>Web -&gt; React Native: The <code>postMessage</code> method and <code>onMessage</code> prop
+By setting the <code>onMessage</code> prop on the webview, <code>window.ReactNative.postMessage</code> method will be injected onto the webview and can be used to send messages 📨 to the native side.</li>
+</ol>
+<p>Not yet clear? let&rsquo;s see that in a table</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center"># times it can run</th>
+<th align="center">from rn to webview</th>
+<th align="center">from webview to rn</th>
+<th align="center">when it runs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>injectedJavaScript</td>
+<td align="center">1</td>
+<td align="center">✅</td>
+<td align="center">🚫</td>
+<td align="center">after page loads</td>
+</tr>
+<tr>
+<td>injectedJavaScriptBeforeContentLoaded</td>
+<td align="center">1</td>
+<td align="center">✅</td>
+<td align="center">🚫</td>
+<td align="center">before the page starts loading</td>
+</tr>
+<tr>
+<td>injectJavaScript</td>
+<td align="center">∞</td>
+<td align="center">✅</td>
+<td align="center">🚫</td>
+<td align="center">Whenever you want</td>
+</tr>
+<tr>
+<td><code>postMessage</code> method and <code>onMessage</code> prop</td>
+<td align="center">∞</td>
+<td align="center">🚫</td>
+<td align="center">✅</td>
+<td align="center">Whenever you want</td>
+</tr>
+</tbody>
+</table>
+<h1 id="display-a-loading-spinner-while-the-web-page-is-loading">Display a loading spinner while the web page is loading</h1>
+<p>Of the first sight, this seems like a great use case for <code>postMessage</code> method &hellip; The webview needs to tell react-native &ldquo;Hey, i&rsquo;d done loading&rdquo;, but we what if i am rendering an external webpage in my webview. How can i use the <code>postMessage</code>?</p>
+<p>The answer is right there in our little table: <code>injectedJavascript</code>. As you see, it runs once after page loads. So we need to inject some JavaScript piece of code that tells react-native it should hide the spinner 🎉</p>
+<p>Sample code:</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isLoading</span> <span class="o">?</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">ActivityIndicator</span> <span class="nx">size</span><span class="o">=</span><span class="s2">&#34;large&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="p">{</span> <span class="nx">alignSelf</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="nx">marginTop</span><span class="o">:</span> <span class="mi">150</span> <span class="p">}</span><span class="p">}</span> <span class="o">/</span><span class="o">&gt;</span>
+<span class="p">)</span> <span class="o">:</span> <span class="kc">null</span><span class="p">}</span>
+<span class="o">&lt;</span><span class="nx">WebView</span>
+    <span class="nx">useWebKit</span>
+    <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="p">{</span> <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;100%&#39;</span><span class="p">,</span> <span class="nx">display</span><span class="o">:</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isLoading</span> <span class="o">?</span> <span class="s1">&#39;flex&#39;</span> <span class="o">:</span> <span class="s1">&#39;none&#39;</span> <span class="p">}</span><span class="p">}</span>
+    <span class="nx">source</span><span class="o">=</span><span class="p">{</span><span class="p">{</span> <span class="nx">uri</span><span class="o">:</span> <span class="s1">&#39;https://google.com&#39;</span> <span class="p">}</span><span class="p">}</span>
+    <span class="nx">injectedJavaScript</span><span class="o">=</span><span class="p">{</span><span class="sb">`</span><span class="sb">
+</span><span class="sb">        window.ReactNativeWebView.postMessage(&#39;loaded&#39;)
+</span><span class="sb">    </span><span class="sb">`</span><span class="p">}</span>
+    <span class="nx">onMessage</span><span class="o">=</span><span class="p">{</span><span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">nativeEvent</span><span class="p">.</span><span class="nx">data</span> <span class="o">===</span> <span class="s1">&#39;loaded&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="p">{</span>
+                <span class="nx">isLoading</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span><span class="p">}</span>
+<span class="err">/</span><span class="err">&gt;</span>
+</code></pre></div>]]></content>
+		</item>
+		
+		<item>
+			<title>The new era of web development - Backendless</title>
+			<link>https://abdellah.blog/posts/learning-rails/</link>
+			<pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+			
+			<guid>https://abdellah.blog/posts/learning-rails/</guid>
+			<description>Introduction I am a full stack developer and all my experience was spent building SPA or mobile apps (React and react-native).
+I always wanted to learn another language. Here are some that interest me:
+ Python because of edge-db. (not so much because they have a JS adapter now) Reason because it&amp;rsquo;s a functional language that&amp;rsquo;s close to JS (syntax wise) and with good support for React. Typescript because of types.</description>
+			<content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>I am a full stack developer and all my experience was spent building SPA or mobile apps (React and react-native).</p>
+<p>I always wanted to learn another language. Here are some that interest me:</p>
+<ul>
+<li>Python because of edge-db. (not so much because they have a JS adapter now)</li>
+<li>Reason because it&rsquo;s a functional language that&rsquo;s close to JS (syntax wise) and with good support for React.</li>
+<li>Typescript because of types. I find it very verbose though.</li>
+<li>Elm because it&rsquo;s functional, safe, different and provides a great DX. Downside (depends!) is it challenges the status quo on everything.</li>
+<li>Ruby because of Rails. I want to master Web Development. And i only heard good things about Rails.</li>
+</ul>
+<p>I settled with Rails (not a language) because i highly appreciate and respect DHH views and opinions and i found <a href="https://github.com/stimulusjs/stimulus">Stimulus</a> and <a href="https://github.com/turbolinks/turbolinks">Turbolinks</a> to be very promising.
+And the new secret technology that changes the paradigm of writing front-end apps is &hellip; exciting to say the least!</p>
+<p>Here are the things i want to learn in this journey:</p>
+<ul>
+<li>How to write Server Side apps. The old way!</li>
+<li>TDD.</li>
+<li>Rails and its philosophy.</li>
+<li>Convention over configuration.</li>
+</ul>
+<p>Another thing i&rsquo;m excited about it Edge-db. And i think it has the potential to change the paradigm of how we write apps.
+I think the next thing will be Serverless meaning no actual server code at all.
+Front-end apps will directly communicate with the database.</p>
+<p>Here we go again. We&rsquo;ll be writing SPAs again!</p>
+<p>But i still think that the front-end space has a lot of space to grow.
+Apps are more and more complex. And we get more complexity by not using the platform (HTML and CSS) at full.
+We do need new primitives so that we can write less code.</p>
+<p>In the meantime, writing no backend code is a great leap forward in that direction.</p>
+<p>I believe a new Rails library will be born for this era. And I want to be the one to build it.</p>
+<p>I will share my progress on this journey in this blog. Wish me luck ☘️</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Why this blog</title>
+			<link>https://abdellah.blog/posts/my-first-post/</link>
+			<pubDate>Sun, 26 Jan 2020 08:47:11 +0100</pubDate>
+			
+			<guid>https://abdellah.blog/posts/my-first-post/</guid>
+			<description>This blog is for me.
+It&amp;rsquo;s an organized library of things i think about or little things i learned.
+I am writing in here so that I:
+ Remember things i learned. Put my half finished thoughts somewhere other than my brain to prevent their loss.  If you are reading this, i&amp;rsquo;d like to thank you for visiting. Send me a DM in twitter 👋</description>
+			<content type="html"><![CDATA[<p>This blog is for me.</p>
+<p>It&rsquo;s an organized library of things i think about or little things i learned.</p>
+<p>I am writing in here so that I:</p>
+<ul>
+<li>Remember things i learned.</li>
+<li>Put my half finished thoughts somewhere other than my brain to prevent their loss.</li>
+</ul>
+<p>If you are reading this, i&rsquo;d like to thank you for visiting. Send me a DM in twitter 👋</p>
 ]]></content>
 		</item>
 		
