@@ -1,20 +1,24 @@
 ---
-title: "Digital Ocean Hacks 1"
-date: 2020-02-13T13:16:29+01:00
+title: "Why I created my own Digital Ocean CLI"
+date: 2020-03-03T13:16:29+01:00
 draft: "true"
 toc: false
 images:
 tags: 
-  - untagged
+  - digital ocean
+  - CLI
+  - JavaScript
+  - Cloud
 ---
 ## What?
 I have several side projects ongoing. And i don't want to run them locally.
 Instead i'd like to deploy them to Digital Ocean and work from there.
 
 ## Why?
-- I have a Mac Air and i want to go easy on it. 
+- I want to go easy on my lovely Mac Air machine.
 - EdgeDB is one of the tools in my ToolBox™️ but it doesn't work in my Mac (High Sierra)
-- I'd like to get acquainted with Digital Ocean
+- I'd like to get acquainted with Digital Ocean.
+- Why not?!
 
 ## Problematic
 Since i have several side projects, deploying them is going to cost some money.
@@ -37,7 +41,7 @@ And I can use it to automate this little process.
 First, authentication.
 > You can generate an OAuth token by visiting the [Apps & API section](https://cloud.digitalocean.com/settings/applications) of the DigitalOcean control panel for your account.
 
-After getting the API key, i created a cli app using oclif.
+After getting the API key, i created a cli app using [oclif](https://oclif.io/).
 It's pretty straightforward. Here is the command that saves a snapshot:
 
 ```ecmascript 6
@@ -66,7 +70,8 @@ async snapshot(id) {
 ```
 Full source code [here](https://github.com/haikyuu/digital-ocean-cli)
 
-Inquierer library provides prompt method which is very handy. And we get a lot for free when using oclif:
+[Inquierer](https://github.com/SBoudrias/Inquirer.js/) library provides prompt method which is very handy.
+And we get a lot for free when using oclif:
 - parameter parsing and validation.
 - help in commands
 - structure
@@ -74,8 +79,13 @@ Inquierer library provides prompt method which is very handy. And we get a lot f
 - and a lot more
 
 Digital Ocean API is easy to use and well documented. The only thing i miss is the ability to create a droplet from a snapshot.
-I contacted support about it.
-But the good news is that you can create one using the official cli.
+I contacted support about it, and they were very helpful.
+
+### Debugging method #1: Remove unnecessary libraries and abstractions
+
+It turned out to be working using `Curl`. So i looked closer and added a `Content-Type: application/json` header. 🎉
+
+An alternative is using the official cli.
 `doctl compute droplet create test --region nyc3 --size s-1vcpu-1gb --image <snapshot_id>`
 
 That said, i highly enjoyed my experience with Digital Ocean and it's going to be my provider of choice now.

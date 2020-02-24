@@ -1,6 +1,6 @@
 ---
 title: "React Native - Webview communication"
-date: 2020-02-13
+date: 2020-02-26
 draft: false
 toc: false
 images:

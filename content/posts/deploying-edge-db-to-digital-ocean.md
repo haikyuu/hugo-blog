@@ -1,7 +1,7 @@
 ---
 title: "Deploying Edge Db to Digital Ocean"
-date: 2020-02-18T09:33:58+01:00
-draft: true
+date: 2020-03-01T09:33:58+01:00
+draft: false
 toc: false
 images:
 tags: 
@@ -10,8 +10,8 @@ tags:
   - edgedb
   - nginx
 ---
-If you're not familiar with EdgeDB, make sure you read my short intro here. Or check out
-their blog or roadmap to get a sense.
+If you're not familiar with EdgeDB, make sure you read [my short intro](./Exploring-Edge-db.md) here. Or check out
+their [blog](https://edgedb.com/blog) or [roadmap](https://edgedb.com/roadmap) to get a sense. Or even better, [try it out!](https://edgedb.com/download).
 tl;dr: It's the DataBase of the future without much hype!
 
 When the alpha2 version of EdgeDB was released, i quickly downloaded it to my Mac Air. But 
@@ -22,10 +22,10 @@ It turned out quite easy and fun to do. Let's see how that was.
 
 ## Setting up Digital ocean
 
-Signing up for Digital Ocean requires you to enter your credit card and verify your ID.
+Signing up for [Digital Ocean](digitalocean.com/) requires you to enter your credit card and verify your ID.
 Yes, i know ... Tedious!
 But fear not. That's the only tedious part of it.
-First, it was super quick (less than a minute). And after that it gets a lot easy.
+First, it was super quick (less than a minute). And after that it gets easier.
 
 - Creating a droplet was fast and easy. I went with the smallest one i chose Ubuntu as a distro.
 - Setting up SSH was quite easy. So i used it as if it was my own machine. I installed VIM and ohmyzsh and a couple more utilities.
@@ -43,7 +43,7 @@ Now that i'm up and running, the next thing was to start creating the schema of 
 Yes, i am building a product using alpha quality tools. Not for the feint hearted, i know.
 
 First, i tried using the GraphQL API from my web app, but i was hitting CORS issues.
-So i created an issue in Github and after discussing with @elprans, one of the creators of EdgeDB. 
+So i created an [issue in Github](https://github.com/edgedb/edgedb/issues/1230) and after discussing with @elprans, one of the creators of EdgeDB. 
 He told me the HTTP implementation is still basic in alpha2, and i need to use a reverse proxy with nginx to proceed.
 
 ## Nginx
@@ -52,7 +52,7 @@ Before looking at the config, here is the big picture of what we want. Created w
 
 ![reverse proxy schema](../../static/images/reverse_proxy.png)
 
-After installing the latest nginx in my Ubuntu server, i created a simple reverse proxy i found in the net as follows:
+After installing the latest [nginx](https://www.nginx.com/) in my Ubuntu server, i created a simple reverse proxy i found in the net as follows:
 
 ```nginx
 server {

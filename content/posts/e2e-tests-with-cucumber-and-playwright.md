@@ -1,11 +1,18 @@
 ---
 title: "E2e Tests With Cucumber and Playwright"
-date: 2020-02-24T02:01:04+01:00
+date: 2020-03-11T02:01:04+01:00
 draft: true
 toc: false
 images:
 tags: 
-  - untagged
+  - JavaScript
+  - Node
+  - Hapi
+  - End to end tests
+  - Cucumber
+  - Jest
+  - Testing
+  - Playwright
 ---
 
 While building my side project, i got frustrated with some bugs.
@@ -13,13 +20,13 @@ So i decided to write tests.
 
 And since i am the only developer, i want to extensively test every single feature of my app.
 I went to `hapi` docs to see how it's done. But i soon remembered the old times when i
-setup e2e tests in a previous job using puppeteer and cucumber.
+setup e2e tests in a previous job using puppeteer and [cucumber](https://cucumber.io/).
 
 It was so good ... until we hit the limitations of puppeteer (also because we had some really bad legacy code).
 
-I'd like to give it a shot. But now, with microsoft's playwright.
+I'd like to give it a shot. But now, with microsoft's [playwright](https://github.com/microsoft/playwright).
 
-## First Impressions
+## First Impressions on Playwright
 
 Using selectors is way easier since i can choose the engine i want and even combine them.
 My favorite is `css` ... you know! You can use it like this `this.page.$('css=#userId')` 

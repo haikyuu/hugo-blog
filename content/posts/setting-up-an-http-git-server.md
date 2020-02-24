@@ -1,16 +1,21 @@
 ---
 title: "Setting Up an Http Git Server"
-date: 2020-02-19T12:15:59+01:00
+date: 2020-03-07T12:15:59+01:00
 draft: true
 toc: false
 images:
 tags: 
-  - untagged
+  - GIT
+  - Cloud
+  - Linux
+  - Lighttpd
+  - git-http-server
 ---
 Git is the defacto version control system. Most of developers are familiar with it to some extent.
 But most of us host their repositories in other people's servers.
 
-For whichever reason or for none, let's create our own Git http server and let's host our code on our infrastructure.
+For whichever reason or for none, let's create our own Git http server and let's host 
+our code on our infrastructure.
 
 # Git http backend
 
@@ -21,7 +26,7 @@ What's CGI?
 From wikipedia: 
 > Common Gateway Interface (CGI) is an interface specification for web servers to execute programs that execute like console applications (also called command-line interface programs) running on a server that generates web pages dynamically.
 
-Ok, now let's create our Git server using lighttpd
+Ok, now let's create our Git server using [lighttpd](https://www.lighttpd.net/)
 
 ### Creating our lighttpd server
 
@@ -40,7 +45,7 @@ In order to allow exporting all repos, we can set the environment variable `GIT_
 
 - `touch git-daemon-export-ok`
 
-Now we have a bare repo that we can use. 
+Now we have a repo that we can use. 
 
 Note that only `git` `pull`, `clone` and `fetch` are enabled by default.
 In order to `git push`, the user needs to be authenticated. (more on that later)
@@ -52,6 +57,7 @@ Visit `localhost:80` and you will see lighttpd home page.
 Now that we have our server up and running, we can edit the config file.
 It's found in `/etc/lighttpd/lighttpd.conf`.
 
+#### Pro Tip
 Before we do that, let's copy the initial conf and use a symbolic link for our server.
 This way, we can have the config file in another folder and have it version controlled.
 
