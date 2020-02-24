@@ -69,7 +69,7 @@ googleAnalytics = "UA-154791126-2"
 
   [[params.social]]
     name = "twitter"
-    url = "https://twitter.com/haikyuu"
+    url = "https://twitter.com/haikyuu_js"
 
   [[params.social]]
     name = "github"
