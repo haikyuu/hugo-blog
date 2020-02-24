@@ -3,7 +3,8 @@ title: "React Native - Webview communication"
 date: 2020-02-24
 draft: false
 toc: false
-images:
+images: 
+  - ../../static/images/rn-webview-image.jpg
 tags: 
   - JavaScript
   - React
@@ -15,7 +16,7 @@ tags:
 
 There are various cases in which you would want to display a Webview in a mobile app. You may want to display your privacy policy that's present in your website, or you may want to integrate with a service that requires the use of a Webview (HelloSign) ...
 
-Whatever is your usecase, you want the best User Experience. So let's dive in and see how we can communicate back and forth between native and a Webview.
+Whatever is your use case, you want the best User Experience. So let's dive in and see how we can communicate back and forth between native and a Webview.
 
 First, let's take a look at the official guide for [communicating between js and native](https://github.com/react-native-community/react-native-webview/blob/master/docs/Guide.md#communicating-between-js-and-native). I sum it up below.
 
