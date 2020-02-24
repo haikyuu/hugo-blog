@@ -5,6 +5,7 @@ draft: false
 toc: false
 images:
   - images/rn-webview-image.jpg
+thumbnail: "images/rn-webview-image.jpg"
 tags: 
   - JavaScript
   - React
