@@ -3,8 +3,12 @@ title: "React Native - Webview communication"
 date: 2020-02-24
 draft: false
 toc: false
+<<<<<<< HEAD
 images:
   - images/rn-webview-image.jpg
+=======
+featuredImg: "images/rn-webview-image.jpg"
+>>>>>>> 35127857a8eabfff59fbc1155c5f75dfe53ca608
 tags: 
   - JavaScript
   - React
