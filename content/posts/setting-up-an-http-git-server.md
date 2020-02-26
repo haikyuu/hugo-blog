@@ -52,6 +52,8 @@ In order to `git push`, the user needs to be authenticated. (more on that later)
 
 ### lighttpd Hello world!
 
+First, install it `sudo apt install lighttpd`.
+
 Visit `localhost:80` and you will see lighttpd home page.
 
 Now that we have our server up and running, we can edit the config file.
