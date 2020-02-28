@@ -1,24 +1,27 @@
 ---
 title: "Deploying Edge Db to Digital Ocean"
-date: 2020-03-01T09:33:58+01:00
+date: 2020-02-28
 draft: false
 toc: false
 images:
-tags: 
+  - images/reverse_proxy.png
+thumbnail: "images/reverse_proxy.png"
+tags:
   - devops
   - digital ocean
   - edgedb
   - nginx
 ---
+
 If you're not familiar with EdgeDB, make sure you read [my short intro](./Exploring-Edge-db.md) here. Or check out
 their [blog](https://edgedb.com/blog) or [roadmap](https://edgedb.com/roadmap) to get a sense. Or even better, [try it out!](https://edgedb.com/download).
 tl;dr: It's the DataBase of the future without much hype!
 
-When the alpha2 version of EdgeDB was released, i quickly downloaded it to my Mac Air. But 
+When the alpha2 version of EdgeDB was released, i quickly downloaded it to my Mac Air. But
 since i had a relatively old OS, i had some problems running it. And since there were some issues
 with docker install for Mac, i had no other solution than deploying it to the cloud.
 
-It turned out quite easy and fun to do. Let's see how that was. 
+It turned out quite easy and fun to do. Let's see how that was.
 
 ## Setting up Digital ocean
 
@@ -43,12 +46,12 @@ Now that i'm up and running, the next thing was to start creating the schema of 
 Yes, i am building a product using alpha quality tools. Not for the feint hearted, i know.
 
 First, i tried using the GraphQL API from my web app, but i was hitting CORS issues.
-So i created an [issue in Github](https://github.com/edgedb/edgedb/issues/1230) and after discussing with @elprans, one of the creators of EdgeDB. 
+So i created an [issue in Github](https://github.com/edgedb/edgedb/issues/1230) and after discussing with [@elprans](https://twitter.com/elprans), one of the creators of EdgeDB.
 He told me the HTTP implementation is still basic in alpha2, and i need to use a reverse proxy with nginx to proceed.
 
 ## Nginx
 
-Before looking at the config, here is the big picture of what we want. Created with the amazing @excalidraw
+Before looking at the config, here is the big picture of what we want. Created with the amazing [excalidraw](excalidraw.com/)
 
 ![reverse proxy schema](../../static/images/reverse_proxy.png)
 
@@ -79,7 +82,8 @@ server {
   }
 }
 ```
-I know it's not secure but it's enough for my lovely side project's 
+
+I know it's not secure but it's enough for my lovely side project's
 staging environment. In prod, i will use the same domain.
 
 Now i can call my GraphQL API from the web app. And It's looking great so far.
