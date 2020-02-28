@@ -53,7 +53,7 @@ He told me the HTTP implementation is still basic in alpha2, and i need to use a
 
 Before looking at the config, here is the big picture of what we want. Created with the amazing [excalidraw](excalidraw.com/)
 
-![reverse proxy schema](../../static/images/reverse_proxy.png)
+![reverse proxy schema](images/reverse_proxy.png)
 
 After installing the latest [nginx](https://www.nginx.com/) in my Ubuntu server, i created a simple reverse proxy i found in the net as follows:
 
