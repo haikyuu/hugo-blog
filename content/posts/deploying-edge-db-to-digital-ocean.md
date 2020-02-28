@@ -10,6 +10,8 @@ tags:
   - devops
   - digital ocean
   - edgedb
+  - database
+  - backend
   - nginx
 ---
 

@@ -7,10 +7,10 @@ images:
   - images/edge-db-alpha2.jpg
 thumbnail: "images/edge-db-alpha2.jpg"
 tags: 
-  - Database
-  - Backend
+  - database
+  - backend
   - Paradigm shift
-  - Edge-db
+  - edgedb
 ---
 [Edge-db](https://edgedb.com/) has recently [released the alpha 2](https://edgedb.com/blog/edgedb-1-0-alpha-2)
 version of their beautiful database.
