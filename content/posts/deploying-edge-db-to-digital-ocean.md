@@ -1,5 +1,5 @@
 ---
-title: "Deploying Edge Db to Digital Ocean"
+title: "Deploying Edge Db to Digital Ocean - nginx reverse proxy"
 date: 2020-02-28
 draft: false
 toc: false
@@ -13,7 +13,7 @@ tags:
   - nginx
 ---
 
-If you're not familiar with EdgeDB, make sure you read [my short intro](./Exploring-Edge-db.md) here. Or check out
+If you're not familiar with EdgeDB, make sure you read [my short intro](https://abdellah.blog/posts/exploring-edge-db/) here. Or check out
 their [blog](https://edgedb.com/blog) or [roadmap](https://edgedb.com/roadmap) to get a sense. Or even better, [try it out!](https://edgedb.com/download).
 tl;dr: It's the DataBase of the future without much hype!
 
@@ -53,7 +53,7 @@ He told me the HTTP implementation is still basic in alpha2, and i need to use a
 
 Before looking at the config, here is the big picture of what we want. Created with the amazing [excalidraw](excalidraw.com/)
 
-![reverse proxy schema](images/reverse_proxy.png)
+![reverse proxy schema](/images/reverse_proxy.png)
 
 After installing the latest [nginx](https://www.nginx.com/) in my Ubuntu server, i created a simple reverse proxy i found in the net as follows:
 
