@@ -1,10 +1,12 @@
 ---
 title: "Why I created my own Digital Ocean CLI"
-date: 2020-03-03T13:16:29+01:00
-draft: "true"
+date: 2020-02-03T13:16:29+01:00
+draft: false
 toc: false
 images:
-tags: 
+  - images/logo-do.jpg
+thumbnail: images/logo-do.jpg
+tags:
   - digital ocean
   - CLI
   - JavaScript
@@ -16,11 +18,11 @@ Instead i'd like to deploy them to Digital Ocean and work from there.
 
 ## Why?
 - I want to go easy on my lovely Mac Air machine.
-- EdgeDB is one of the tools in my ToolBox™️ but it doesn't work in my Mac (High Sierra)
-- I'd like to get acquainted with Digital Ocean.
+- [EdgeDB](https://edgedb.com/) is one of the tools in my ToolBox™️ but it doesn't work in my Mac (High Sierra)
+- I'd like to get acquainted with [Digital Ocean](https://digitalocean.com/).
 - Why not?!
 
-## Problematic
+## The Problem
 Since i have several side projects, deploying them is going to cost some money.
 And i don't need to keep them alive for now since i don't have any users yet.
 
@@ -83,7 +85,7 @@ I contacted support about it, and they were very helpful.
 
 ### Debugging method #1: Remove unnecessary libraries and abstractions
 
-It turned out to be working using `Curl`. So i looked closer and added a `Content-Type: application/json` header. 🎉
+It turned out to be working using `Curl`. So i looked closer and added a `Content-Type: application/json` header. It works now 🎉
 
 An alternative is using the official cli.
 `doctl compute droplet create test --region nyc3 --size s-1vcpu-1gb --image <snapshot_id>`
