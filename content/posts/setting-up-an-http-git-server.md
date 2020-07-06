@@ -1,7 +1,7 @@
 ---
 title: "Setting Up an Http Git Server"
 date: 2020-03-07T12:15:59+01:00
-draft: true
+draft: false
 toc: false
 images:
 tags: 
