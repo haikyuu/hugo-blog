@@ -1,6 +1,6 @@
 ---
 title: "Setting Up an Http Git Server"
-date: 2020-03-07T12:15:59+01:00
+date: 2020-07-06T12:15:59+01:00
 draft: false
 toc: false
 images:
@@ -15,7 +15,7 @@ Git is the defacto version control system. Most of developers are familiar with 
 But most of us host their repositories in other people's servers.
 
 For whichever reason or for none, let's create our own Git http server and let's host 
-our code on our infrastructure.
+our code on our inf rastructure.
 
 # Git http backend
 
